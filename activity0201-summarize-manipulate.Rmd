@@ -9,7 +9,7 @@ output:
 
 ### Load packages
 
-```{r load-packages, message=FALSE}
+```{r other, message=FALSE}
 library(tidyverse) 
 ```
 
