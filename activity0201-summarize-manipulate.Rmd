@@ -20,7 +20,6 @@ college_recent_grads <- read_csv("data/recent-grads.csv")
 ```
 
 
-### Exercise 1
 ### Exercise 01
 
 (Type your answer to Exercise 1 here. Add code chunks as needed. Don't forget 
