@@ -1,6 +1,6 @@
 ---
 title: "Activity 2.1 - Exploratory Data Analysis: Summarizing and Manipulating"
-author: s01-purple
+author: other
 date: 9/3/2019
 output: 
   html_document: 
@@ -22,7 +22,7 @@ college_recent_grads <- read_csv("data/recent-grads.csv")
 ```
 
 
-### Exercise 1
+### Exercise One
 
 (Type your answer to Exercise 1 here. Add code chunks as needed. Don't forget 
 to label your code chunk. Do not use spaces in code chunk labels.)
