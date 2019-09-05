@@ -31,7 +31,7 @@ head(3)
 
 ggplot(data = college_recent_grads, mapping = aes(x = median)) +
   geom_histogram()
-geom_histogram(binwidth = 1000)
+geom_histogram(binwidth = 5000)
 
 college_recent_grads %>%
   summarise(min = min(median), 
@@ -59,7 +59,7 @@ The median is used for such data because the median is a robust statistic and is
 
 
 ### Exercise 4
-
+We chose a binwidth of 5000 because the minimum median salary is $22000 and 1000 seemed too low.
 ...
 
 ### Exercise 5
