@@ -55,6 +55,22 @@ college_recent_grads %>%
 college_recent_grads %>%
   count(major_category) %>%
  arrange(desc(n))
+
+stem_categories <- c("Biology & Life Science",
+                     "Computers & Mathematics",
+                     "Engineering",
+                     "Physical Sciences")
+
+college_recent_grads <- college_recent_grads %>%
+  mutate(major_type = ifelse(major_category %in% stem_categories, "stem", "not stem"))
+
+college_recent_grads %>%
+  filter(
+    major_type == "stem",
+    median < 36000
+  )%>%
+arrange(desc(median))%>%
+select(major, median, p25th, p75th)
 ```
 
 
