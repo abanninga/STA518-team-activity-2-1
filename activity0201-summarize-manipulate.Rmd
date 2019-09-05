@@ -1,6 +1,5 @@
 ---
 title: "Activity 2.1 - Exploratory Data Analysis: Summarizing and Manipulating"
-author: alaine
 author: other
 date: 9/3/2019
 output: 
