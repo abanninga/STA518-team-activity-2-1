@@ -29,6 +29,18 @@ college_recent_grads %>%
   select(rank, major, sharewomen)%>%
 head(3)
 
+ggplot(data = college_recent_grads, mapping = aes(x = median)) +
+  geom_histogram()
+geom_histogram(binwidth = 1000)
+
+college_recent_grads %>%
+  summarise(min = min(median), 
+            max = max(median),
+            mean = mean(median),
+            med = median(median),
+            sd = sd(median), 
+            q1 = quantile(median, probs = 0.25),
+            q3 = quantile(median, probs = 0.75))
 
 ```
 
@@ -39,7 +51,7 @@ Altering the number of digits displayed without touching the input data is the b
 
 ### Exercise 2
 
-Zoology (), Visual And Performing Arts (), United States History ().
+Zoology (.637), Visual And Performing Arts (.746), United States History (.430).
 
 ### Exercise 3
 
