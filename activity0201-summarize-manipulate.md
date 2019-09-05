@@ -1,6 +1,6 @@
 ---
 title: "Activity 2.1 - Exploratory Data Analysis: Summarizing and Manipulating"
-author: other
+author: s01-purple
 date: 9/3/2019
 output: 
   html_document: 
@@ -9,18 +9,20 @@ output:
 
 ### Load packages
 
-```{r other, message=FALSE}
+
+```r
 library(tidyverse) 
 ```
 
 ### Load data
 
-```{r load-data, message=FALSE}
+
+```r
 college_recent_grads <- read_csv("data/recent-grads.csv") 
 ```
 
 
-### Exercise 01
+### Exercise 1
 
 (Type your answer to Exercise 1 here. Add code chunks as needed. Don't forget 
 to label your code chunk. Do not use spaces in code chunk labels.)
