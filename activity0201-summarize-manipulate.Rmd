@@ -52,6 +52,9 @@ college_recent_grads %>%
   summarise(med = median(median)) %>%
   arrange(desc(major_category))
 
+college_recent_grads %>%
+  count(major_category)
+
 ```
 
 
