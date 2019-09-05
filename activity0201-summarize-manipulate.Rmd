@@ -1,6 +1,6 @@
 ---
 title: "Activity 2.1 - Exploratory Data Analysis: Summarizing and Manipulating"
-author: other
+author: Purple Group (Section 01)
 date: 9/3/2019
 output: 
   html_document: 
@@ -24,38 +24,83 @@ college_recent_grads %>%
   mutate(unemployment_rate = round(unemployment_rate, digits = 4))
 options(digits = 2)
 
+
+
+
+
+```
+
+
+### Exercise One
+
+Altering the number of digits displayed without touching the input data is the better option because it organizes the data set while still maintaining the set in it's entirity.
+
+### Exercise 2
+
+Zoology (.637), Visual And Performing Arts (.746), United States History (.430).
+```{r}
 college_recent_grads %>%
   arrange(desc(major)) %>%
   select(rank, major, sharewomen)%>%
 head(3)
+```
 
+
+### Exercise 3
+
+The median is used for such data because the median is a robust statistic and is not succeptible to outliers like the mean is.
+
+
+### Exercise 4
+We chose a binwidth of 5000 because the minimum median salary is $22000 and 1000 seemed too low.
+...
+
+### Exercise 5
+The distribution is right skewed with one extreme outlier, I would suggest using the median as a measure of central tendency. (Median salary = $36,000)
+```{r}
 ggplot(data = college_recent_grads, mapping = aes(x = median)) +
   geom_histogram()
 geom_histogram(binwidth = 5000)
+```
 
-college_recent_grads %>%
-  summarise(min = min(median), 
-            max = max(median),
-            mean = mean(median),
-            med = median(median),
-            sd = sd(median), 
-            q1 = quantile(median, probs = 0.25),
-            q3 = quantile(median, probs = 0.75))
+...
 
+### Exercise 6
+```{r}
 ggplot(data = college_recent_grads, mapping = aes(x = median)) +
   geom_histogram() +
   facet_wrap( ~ major_category, ncol = 4)
 geom_histogram(binwidth = 5000)
+```
 
+...
+
+### Exercise 7
+Engineering has the highest median salary.
+```{r}
 college_recent_grads %>%
   group_by(major_category) %>%
   summarise(med = median(median)) %>%
   arrange(desc(med))
+```
 
+...
+
+### Exercise 8
+The least popular is Interdisciplinary with count (n = 1)
+```{r}
 college_recent_grads %>%
   count(major_category) %>%
- arrange(desc(n))
+ arrange(n)
+```
 
+...
+
+
+### Exercise 9
+STEM majors with median salaries less than or equal to the median for all majors' median earnings are Environmental Science, Multi-Disciplinary Or General Science, Physiology, Communication Technologies, Neuroscience, Atmospheric Sciences And Meteorology, Miscellaneous Biology, Biology, Ecology, and Zoology.
+
+```{r}
 stem_categories <- c("Biology & Life Science",
                      "Computers & Mathematics",
                      "Engineering",
@@ -73,51 +118,13 @@ arrange(desc(median))%>%
 select(major, median, p25th, p75th)
 ```
 
-
-### Exercise One
-
-Altering the number of digits displayed without touching the input data is the better option because it organizes the data set while still maintaining the set in it's entirity.
-
-### Exercise 2
-
-Zoology (.637), Visual And Performing Arts (.746), United States History (.430).
-
-### Exercise 3
-
-The median is used for such data because the median is a robust statistic and is not succeptible to outliers like the mean is.
-
-
-### Exercise 4
-We chose a binwidth of 5000 because the minimum median salary is $22000 and 1000 seemed too low.
-...
-
-### Exercise 5
-The distribution is right skewed with one extreme outlier, I would suggest using the median as a measure of central tendency. (Median salary = $36,000)
-...
-
-### Exercise 6
-```
-ggplot(data = college_recent_grads, mapping = aes(x = median)) +
-  geom_histogram() +
-  facet_wrap( ~ major_category, ncol = 4)
-geom_histogram(binwidth = 5000)
-
-(See above for actual distributions)
-```
-...
-
-### Exercise 7
-Engineering has the highest median salary.
-...
-
-### Exercise 8
-The least popular is Interdisciplinary with count (n = 1)
-...
-
-### Exercise 9
-
 ...
 
 ### Exercise 10
+The trend of the data suggests that the proportion of women in STEM fields is lower than the proportion of women in non-STEM fields, but the women in STEM fields tend to have higher median salaries respectively in comparison to women in non-STEM fields. 
+```{r}
+ggplot(data = college_recent_grads, mapping = aes(x = sharewomen, y = median, color = major_type)) +
+  geom_point()
+```
 
 ...
