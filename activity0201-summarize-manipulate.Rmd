@@ -53,8 +53,8 @@ college_recent_grads %>%
   arrange(desc(med))
 
 college_recent_grads %>%
-  count(major_category)
-
+  count(major_category) %>%
+ arrange(desc(n))
 ```
 
 
@@ -91,7 +91,7 @@ geom_histogram(binwidth = 5000)
 ...
 
 ### Exercise 7
-It appears that Engineering has the highest median salary.
+Engineering has the highest median salary.
 ...
 
 ### Exercise 8
