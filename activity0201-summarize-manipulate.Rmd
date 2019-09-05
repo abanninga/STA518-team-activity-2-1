@@ -17,23 +17,33 @@ library(tidyverse)
 
 ```{r load-data, message=FALSE}
 college_recent_grads <- read_csv("data/recent-grads.csv") 
+
+college_recent_grads %>%
+  arrange(unemployment_rate) %>%
+  select(rank, major, unemployment_rate) %>%
+  mutate(unemployment_rate = round(unemployment_rate, digits = 4))
+options(digits = 2)
+
+college_recent_grads %>%
+  arrange(desc(major)) %>%
+  select(rank, major, sharewomen)%>%
+head(3)
+
+
 ```
 
 
 ### Exercise One
 
-(Type your answer to Exercise 1 here. Add code chunks as needed. Don't forget 
-to label your code chunk. Do not use spaces in code chunk labels.)
+Altering the number of digits displayed without touching the input data is the better option because it organizes the data set while still maintaining the set in it's entirity.
 
 ### Exercise 2
 
-(Type your answer to Exercise 2 here. Add code chunks as needed. Don't forget 
-to label your code chunk. Do not use spaces in code chunk labels.)
+Zoology (), Visual And Performing Arts (), United States History ().
 
 ### Exercise 3
 
-(Type your answer to Exercise 2 here. Add code chunks as needed. Don't forget 
-to label your code chunk. Do not use spaces in code chunk labels.)
+The median is used for such data because the median is a robust statistic and is not succeptible to outliers like the mean is.
 
 
 ### Exercise 4
