@@ -42,6 +42,16 @@ college_recent_grads %>%
             q1 = quantile(median, probs = 0.25),
             q3 = quantile(median, probs = 0.75))
 
+ggplot(data = college_recent_grads, mapping = aes(x = median)) +
+  geom_histogram() +
+  facet_wrap( ~ major_category, ncol = 4)
+geom_histogram(binwidth = 5000)
+
+college_recent_grads %>%
+  group_by(major_category) %>%
+  summarise(med = median(median)) %>%
+  arrange(desc(major_category))
+
 ```
 
 
@@ -63,11 +73,18 @@ We chose a binwidth of 5000 because the minimum median salary is $22000 and 1000
 ...
 
 ### Exercise 5
-
+The distribution is right skewed with one extreme outlier, I would suggest using the median as a measure of central tendency. (Median salary = $36,000)
 ...
 
 ### Exercise 6
+```
+ggplot(data = college_recent_grads, mapping = aes(x = median)) +
+  geom_histogram() +
+  facet_wrap( ~ major_category, ncol = 4)
+geom_histogram(binwidth = 5000)
 
+(See above for actual distributions)
+```
 ...
 
 ### Exercise 7
