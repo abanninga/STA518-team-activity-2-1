@@ -50,6 +50,18 @@ head(3)
 
 The median is used for such data because the median is a robust statistic and is not succeptible to outliers like the mean is.
 
+```{r}
+college_recent_grads %>%
+  arrange(unemployment_rate) %>%
+  select(rank, major, unemployment_rate) %>%
+  mutate(unemployment_rate = round(unemployment_rate, digits = 4))
+  
+  college_recent_grads %>%
+  arrange(desc(unemployment_rate)) %>%
+  select(rank, major, unemployment_rate)
+```
+
+
 
 ### Exercise 4
 We chose a binwidth of 5000 because the minimum median salary is $22000 and 1000 seemed too low.
